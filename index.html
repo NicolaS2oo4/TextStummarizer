@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Riassunto Pagina</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../static/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    </head>
+    <body>
+        <h2 id = "titolo"> Riassunto Pagina Web: </h1>
+            <div id="button-container">  
+                <form id = "form" method = "post">  
+                    <input type = "text" id ="testo_link" name = "testo_link", id = "url" required = "" opacity = "40%" placeholder= "Link Sito Web:">
+                    <input type = "submit" id="bottone" value = "Riassumi" >
+                </form>
+            </div>
+
+        <div id = "divSezioneTesto">
+            <h3 id="Text_Riassunto">Testo</h3><br><br>
+                <div id="quadrato_grigio1">
+                    <textarea id="area_di_scrittura" name="AreaScrittura" rows="30" cols="60" readonly>{{originale}}</textarea>
+                </div>
+        </div>
+        <div id = "stampaRisultato" >
+            <h3 id="Riassunto_Text">Riassunto</h3><br><br>
+            <div id="quadrato_grigio2">
+                <textarea id="area_di_riassunto" name="AreaScrittura" rows="30" cols="60" readonly>{{riassunto}}</textarea>
+            </div>
+        </div>
+
+        <br>
+         <div class="box">
+            <form method="POST">
+                <input name = "slider" type="range" id="lunghezza_riassunto" value="50" min="20" max="80" step="1">
+                <p id="value"></p>
+            </form>
+            <div id="scarica_file">
+                <a href = "{{url_for('.download')}}">
+                    <button id="download">
+                        <img src="../static/img/document.png">
+                    </button>
+                </a>  
+    
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script>
+            const value = document.querySelector("#value")
+            const input = document.querySelector("#lunghezza_riassunto")
+            value.textContent = input.value
+            input.addEventListener("input", (event) => {
+                value.textContent = event.target.value
+            })
+        </script>
+    </body>
+</html>
