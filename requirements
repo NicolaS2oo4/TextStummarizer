@@ -1,0 +1,7 @@
+flask
+flask-template
+urllib
+bs4
+nltk
+stop_words
+lengdetect
